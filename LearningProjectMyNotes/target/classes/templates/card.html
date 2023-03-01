@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div th:if="${#lists.isEmpty(all)}">
+				<!-- <h1>Nothing to display has you have not added any notes Yet!!!</h1> -->
+			<div class="container card">			
+			
+							<div class="card-body text-center">
+								<!-- <img th:src="@{/img/stick-writing.jpg}" alt="" class="img-fluid" /> -->
+								<img th:src="@{/img/write.jpg}"  alt="" class="img-fluid" />
+								<h1 class="text-primary">Write Something! There is nothing to display</h1>
+							</div>
+						
+					</div>
+				
+			
+		</div>
+		<div th:unless="${#lists.isEmpty(all)}">
+			<div class="container">
+				<div class="row">
+				<div class="col-md-3" th:each="c: ${all}">
+					<div class="card text-center mb-2">
+						<div class="card-body">
+							<input type="hidden" th:value="${c.id}" name="id" />
+							<img th:src="@{/img/PenPaper.png}" alt=""  class="img-fluid"/>
+							<a class="btn btn-primary btn-md " th:href="@{'/singleNotes/'+${c.id}}" title="CLick to View"><span th:text="${c.title}"></span></a>
+						</div>
+					</div>				
+				</div>
+			</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

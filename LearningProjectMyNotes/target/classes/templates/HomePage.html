@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org"  th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="col-md-12">
+			<div class="container text-center card">
+				<div class="card-body">
+					<div>
+						<h1>MyNotes</h1>
+					</div>
+					<div>
+						<img  th:src="@{/img/PenPaper.png}" alt="" style="height: 60vh;"/>
+					</div>
+					<div>
+						<a class="btn btn-block btn-primary btn-lg font-weight-bold mt-3" th:href="@{/showall}">Get Started</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+</body>
+</html>

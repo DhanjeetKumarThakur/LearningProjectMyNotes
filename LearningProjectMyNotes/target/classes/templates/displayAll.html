@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="card container">
+			<div class="card-body ">
+				<div class="container" >
+					<table class="table">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col">Title</th>
+								<th scope="col">TODO</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="c: ${all}">
+								<th scope="row"><span th:text="${'TODO'+c.id}"></span></th>
+								<td><a th:href="@{'/singleTodo/'+${c.id}}" style="text-decoration: none;" title="Click to view">
+									<span th:text="${c.title}"></span> </a> 
+								</td>
+								<td th:text="${c.context}"></td>
+								<td><a href="" th:href="@{'/delete/'+${c.id}}">
+									<i class="fa-solid fa-trash-can text-danger" style="font-size: 22px">
+									</i>
+								</a> 
+								
+								<a href="" th:href="@{'/update/'+${c.id}}">
+									<i class="fa-solid fa-pen-nib text-primary" style="font-size: 22px">
+									</i>
+								</a>  </td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

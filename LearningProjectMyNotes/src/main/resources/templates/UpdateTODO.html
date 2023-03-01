@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="card container">
+			<div class="card-body">
+				<h1 class="text-center">Update Notes</h1>
+
+				<form  th:action="@{'/updateNotes/'+${id}}"  th:object="${todo}" >
+					<h4>Notes Title :</h4>
+					<input type="hidden" name="id" th:value="${todo.id}"/>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text font-weight-bold">+</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter Title here" name="title" th:value="${todo.title}" />
+					</div>
+
+					<h4>Notes Context :</h4>
+
+					<textarea  id=""  rows="10" class="form-control"
+						placeholder="Enter your context here"  name="context" th:text="${todo.context}" ></textarea>
+
+					<div class="container text-center mt-2">
+						<a th:href="@{/showall}" class="btn btn-outline-primary btn-md">Back</a>
+						<button type="submit" class="btn btn-outline-success btn-md">Update</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

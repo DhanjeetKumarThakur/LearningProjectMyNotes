@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<section>
+			<div class="col-md-12 ">
+				<div class="card text-center container">
+					<div class="card-body">
+					
+						<img src="" th:src="@{/img/PenPaper.png}" alt="" width="224" height="215" />
+						<h1 th:text="${titl}"></h1>	
+						<div class="text-justify text-decoration-none"><span th:text="${context}"></span></div>
+						<h5 class="mt-2 " th:text="${date}"></h5>
+						<a th:href="@{/showall}" class="btn btn-primary btn-md mt-2">Back</a>
+						<a href="" th:href="@{'/update/'+${id}}" class="btn btn-success btn-md mt-2">Update</a>
+						<a href="" th:href="@{'/delete/'+${id}}" class="btn btn-danger btn-md mt-2">Delete</a>
+					</div>
+				</div>
+			</div>
+	</section>
+</body>
+</html>

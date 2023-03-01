@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="card container">
+			<div class="card-body">
+				<h1 class="text-center">Add Notes</h1>
+					<!-- Message -->
+				<div class="alert" th:if="${session.message}" th:classappend="${session.message.type}">
+					<p class="text-center" th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+				</div>
+				<form  th:action="@{/saveNotes}"  th:object="${todo}" method="post">
+					<h4>MyNotes Title :</h4>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text font-weight-bold">+</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Enter Title here" name="title" required="required"/>
+					</div>
+
+					<h4>Notes Context :</h4>
+
+					<textarea  id=""  rows="10" class="form-control"
+						placeholder="Enter your context here"  name="context" required="required" ></textarea>
+
+					<div class="container text-center mt-2">
+						<a th:href="@{/showall}" class="btn btn-primary btn-md mx-1">Back</a>
+						<button type="submit" class="btn btn-success btn-md">Save</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>
